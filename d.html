@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Resources - Goodisoft Technologies</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts for Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f8f9fa; }
+    .hero-section { background: linear-gradient(135deg, #f5f7fa, #e4e8eb); padding: 100px 0; }
+    .section-padding { padding: 80px 0; }
+    .card { transition: all .3s ease; border: none; border-radius: 10px; overflow: hidden; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,.1)!important; }
+    .video-thumbnail { position: relative; cursor: pointer; }
+    .video-thumbnail img { width: 100%; border-radius: 10px; }
+    .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: .3s; }
+    .play-btn i { color: #2962ff; font-size: 20px; }
+    .video-thumbnail:hover .play-btn { background: #2962ff; }
+    .video-thumbnail:hover .play-btn i { color: #fff; }
+    .footer { background: #212121; color: #e0e0e0; padding: 40px 0; }
+    .footer a { color: #e0e0e0; }
+    .footer a:hover { color: #fff; }
+    .playlist-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    /* FIX: Set a max height for the modal body to prevent vertical scroll on desktop */
+    .modal-body {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <h4 class="brand"><img class="rounded-circle mx-1" src="images/goodie_logo_enhanced.png" style="height:40px;"/> GoodiSoft</h4>
+      </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="learning.html">Free Learning</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4">Free Courses & Tutorials Academy</h1>
+      <p class="lead mb-4">Expand your skills with our free programming tutorials, web dev courses, and tech guides from Goodisoft YouTube.</p>
+      <a class="btn btn-primary btn-lg" href="https://www.youtube.com/@goodisoft" target="_blank"><i class="fab fa-youtube me-2"></i> Visit Our YouTube</a>
+    </div>
+  </section>
+
+  <!-- Video Gallery -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Categorized Playlists</h2>
+        <p class="lead">Organized by series and topics</p>
+      </div>
+      <div id="playlists-container">
+        <!-- Playlists will be dynamically loaded here -->
+      </div>
+      <div class="text-center mt-4">
+        <a class="btn btn-primary btn-lg" href="https://www.youtube.com/@goodisoft/videos" target="_blank"><i class="fab fa-youtube me-2"></i> View All on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe CTA -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="mb-3">Never Miss a New Tutorial</h2>
+      <p class="lead mb-4">Subscribe to our YouTube channel and turn on notifications.</p>
+      <a class="btn btn-danger btn-lg" href="https://www.youtube.com/@goodisoft?sub_confirmation=1" target="_blank"><i class="fab fa-youtube me-2"></i> Subscribe</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>© 2024 Goodisoft Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">Watch Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <!-- The video player will be embedded here -->
+          <div class="ratio ratio-16x9">
+            <iframe id="youtube-player" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript for YouTube API -->
+  <script>
+    // YouTube API Key and Channel ID
+    // IMPORTANT: Replace these with your own API key and Channel ID
+    // You can get an API key from https://console.cloud.google.com/apis/credentials
+    const apiKey = "AIzaSyCRmq7gUG3uHqYOxw25fojrZHzOueAPVsg"; 
+    const channelId = "UC0mc0RMkXmCNCLYsuRbhwfQ";
+
+    // Asynchronously fetch all video playlists and then load videos
+    async function fetchAndLoadPlaylists() {
+        const playlistsContainer = document.getElementById('playlists-container');
+        playlistsContainer.innerHTML = `<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading playlists...</p></div>`;
+
+        try {
+            // Fetch all public playlists from the channel
+            const playlistsRes = await fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${channelId}&maxResults=50&key=${apiKey}`);
+            if (!playlistsRes.ok) {
+                throw new Error('Failed to fetch playlists from YouTube API. Check your API key and channel ID.');
+            }
+            const playlistsData = await playlistsRes.json();
+            
+            // The "Latest Uploads" playlist ID is derived from the channel ID
+            const uploadsPlaylistId = 'UU' + channelId.substring(2);
+
+            // Dynamically create a map of playlist IDs and titles
+            const playlistIds = { [uploadsPlaylistId]: 'Latest Uploads' };
+            playlistsData.items.forEach(item => {
+                playlistIds[item.id] = item.snippet.title;
+            });
+            
+            // Clear the loading message
+            playlistsContainer.innerHTML = '';
+            
+            // Loop through the dynamically created playlist object
+            for (const playlistId in playlistIds) {
+                const playlistTitle = playlistIds[playlistId];
+                
+                // Fetch videos for the current playlist
+                const videosRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=6&playlistId=${playlistId}&key=${apiKey}`);
+                if (!videosRes.ok) {
+                    throw new Error('Failed to fetch videos from YouTube API.');
+                }
+                const videosData = await videosRes.json();
+                
+                let playlistOutput = `
+                    <div class="mb-5">
+                        <h3 class="playlist-title">${playlistTitle}</h3>
+                        <div class="row" id="playlist-${playlistId}"></div>
+                    </div>
+                `;
+                playlistsContainer.insertAdjacentHTML('beforeend', playlistOutput);
+                
+                let videoGallery = document.getElementById(`playlist-${playlistId}`);
+                let videosHtml = '';
+                
+                if (videosData.items.length === 0) {
+                    videosHtml = '<div class="col-12"><p class="text-muted text-center">No videos found in this playlist.</p></div>';
+                } else {
+                    videosData.items.forEach(item => {
+                        const vid = item.contentDetails.videoId;
+                        const title = item.snippet.title;
+                        const thumb = item.snippet.thumbnails.medium.url;
+
+                        videosHtml += `
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="card h-100 shadow-sm video-card">
+                                    <div class="video-thumbnail" onclick="openVideoModal('${vid}')">
+                                        <img src="${thumb}" alt="${title}" class="img-fluid"/>
+                                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title">${title}</h6>
+                                    </div>
+                                </div>
+                            </div>`;
+                    });
+                }
+                videoGallery.innerHTML = videosHtml;
+            }
+        } catch (e) {
+            console.error(e);
+            playlistsContainer.innerHTML = `<p class='text-danger text-center'>Unable to load videos. Please check your API key & channel ID, and ensure your playlists are public.</p>`;
+        }
+    }
+
+    // Function to open the video modal and play the video
+    function openVideoModal(videoId) {
+        const modal = new bootstrap.Modal(document.getElementById('videoModal'));
+        const player = document.getElementById('youtube-player');
+        // Set the iframe source to the YouTube embed URL
+        player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.show();
+    }
+    
+    // Event listener to stop the video when the modal is closed
+    const videoModal = document.getElementById('videoModal');
+    videoModal.addEventListener('hidden.bs.modal', function () {
+        const player = document.getElementById('youtube-player');
+        player.src = ''; // Clear the src to stop the video
+    });
+
+    // Start loading playlists when the page loads
+    window.onload = fetchAndLoadPlaylists;
+  </script>
+</body>
+</html>
