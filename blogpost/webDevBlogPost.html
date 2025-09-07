@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Future of Web Development in 2023 - Goodisoft Technologies</title>
+    <!-- Third-Party CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Reuse the same CSS from index.html */
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+            --success: #4caf50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader .loader {
+            text-align: center;
+        }
+
+        .preloader p {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            font-size: 0.875rem;
+        }
+
+        .top-bar .contact-info i {
+            margin-right: 0.25rem;
+        }
+
+        .top-bar .social-links a {
+            color: var(--white);
+            margin-left: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Blog Hero Section */
+        .blog-hero {
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        .blog-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 50px 0;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-meta span {
+            margin-right: 20px;
+        }
+
+        .article-meta i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .article-image {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2, .article-body h3, .article-body h4 {
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .article-body blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tags-share {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+        }
+
+        .tags span {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .share-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .share-buttons span {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--light);
+            color: var(--dark);
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Author Bio */
+        .author-bio {
+            display: flex;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .author-avatar {
+            width: auto;
+            height: auto;
+            /* border-radius: 10%; */
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .author-social a {
+            color: var(--dark);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .author-social a:hover {
+            color: var(--primary);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin: 3rem 0;
+        }
+
+        .comments-section h3 {
+            margin-bottom: 2rem;
+        }
+
+        .comment {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .comment-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-header h5 {
+            margin-bottom: 0;
+        }
+
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .comment p {
+            margin-bottom: 10px;
+        }
+
+        .comment-reply {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        /* Comment Form */
+        .comment-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .comment-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin: 3rem 0;
+        }
+
+        .related-posts h3 {
+            margin-bottom: 2rem;
+        }
+
+        .related-post {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .related-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-post-thumbnail {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .related-post-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .related-post:hover .related-post-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .related-post-content {
+            padding: 20px;
+        }
+
+        .related-post-date {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .related-post-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .related-post-link {
+            font-weight: 500;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .related-post-link i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .related-post-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .blog-hero {
+                text-align: center;
+                padding: 5rem 0 3rem;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .tags-share {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .share-buttons {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .blog-hero {
+                text-align: center;
+                padding: 4rem 0 2rem;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-avatar {
+                margin: 0 auto 20px;
+            }
+
+            .comment {
+                flex-direction: column;
+            }
+
+            .comment-avatar {
+                margin: 0 auto 15px;
+            }
+
+            .comment-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .comment-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading Goodisoft Technologies...</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar bg-dark text-white py-2 d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <span class="me-3" style="font-size: medium;"><i class="fas fa-phone-alt"></i> (+234) 806 584 5092
+                    </span>
+                    <span style="font-size: medium;"><i class="fas fa-envelope"></i> info@goodisoft.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="instagram.com/goodisoft?igsh=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img alt="Goodisoft Technologies Logo"
+                    src="https://placehold.co/180x50/ffffff/2962ff?text=GoodiSoft&amp;font=poppins" />
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="/it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1>The Future of Web Development in 2023</h1>
+                    <div class="article-meta">
+                        <span><i class="fas fa-user"></i> Admin</span>
+                        <span><i class="fas fa-calendar"></i> June 15, 2023</span>
+                        <span><i class="fas fa-folder"></i> Web Development</span>
+                        <span><i class="fas fa-comments"></i> 5 Comments</span>
+                        <span><i class="fas fa-clock"></i> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Web Development">
+                    </div>
+
+                    <div class="article-body">
+                        <p>Web development continues to evolve at a rapid pace, with new technologies and frameworks emerging regularly. As we move through 2023, several trends are shaping the future of web development, from AI integration to serverless architecture and beyond.</p>
+
+                        <h2>AI-Powered Development</h2>
+                        <p>Artificial Intelligence is no longer just a buzzword in the web development world. AI-powered tools are now assisting developers in writing code, debugging, and even designing user interfaces. Platforms like GitHub Copilot use machine learning to suggest code snippets and complete functions, significantly speeding up the development process.</p>
+
+                        <p>Moreover, AI is being integrated directly into websites to provide personalized user experiences. Chatbots have become more sophisticated, offering human-like interactions and solving complex customer queries without human intervention.</p>
+
+                        <blockquote>
+                            "AI will not replace developers, but developers who use AI will replace those who don't."
+                        </blockquote>
+
+                        <h2>Serverless Architecture</h2>
+                        <p>Serverless computing continues to gain traction as it allows developers to focus on writing code without worrying about infrastructure management. With serverless architecture, cloud providers automatically handle the scaling, patching, and maintenance of servers.</p>
+
+                        <p>This approach reduces costs, improves scalability, and shortens time to market. AWS Lambda, Azure Functions, and Google Cloud Functions are leading the charge in this space, with more companies adopting serverless solutions for their web applications.</p>
+
+                        <h2>Jamstack Architecture</h2>
+                        <p>Jamstack (JavaScript, APIs, and Markup) has moved from a niche approach to a mainstream architecture for building fast and secure websites. By pre-rendering pages and serving them via CDNs, Jamstack sites offer superior performance and security compared to traditional server-rendered applications.</p>
+
+                        <p>Frameworks like Next.js, Gatsby, and Nuxt.js have made it easier than ever to build Jamstack sites, with built-in support for static site generation, server-side rendering, and hybrid approaches.</p>
+
+                        <h2>WebAssembly (Wasm)</h2>
+                        <p>WebAssembly is changing what's possible on the web by allowing code written in languages like C++, Rust, and Go to run in the browser at near-native speed. This opens up new possibilities for web applications that require heavy computation, such as video editing, 3D rendering, and scientific simulations.</p>
+
+                        <p>As browser support continues to improve and more tools emerge for compiling to WebAssembly, we can expect to see more complex applications moving to the web.</p>
+
+                        <h2>Progressive Web Apps (PWAs)</h2>
+                        <p>Progressive Web Apps continue to blur the line between web and native applications. PWAs offer offline functionality, push notifications, and device hardware access while still being accessible through a web browser.</p>
+
+                        <p>With major companies like Twitter, Pinterest, and Uber adopting PWAs, this technology has proven its value in providing app-like experiences without the need for app store distribution.</p>
+
+                        <h2>Conclusion</h2>
+                        <p>The future of web development in 2023 is exciting and full of possibilities. As AI, serverless architecture, Jamstack, WebAssembly, and PWAs continue to mature, developers have more tools than ever to create innovative, performant, and user-friendly web experiences.</p>
+
+                        <p>Staying current with these trends and continuously learning new technologies will be essential for web developers who want to remain competitive in this rapidly evolving field.</p>
+                    </div>
+
+                    <div class="tags-share">
+                        <div class="tags">
+                            <span>Tags:</span>
+                            <a href="#" class="tag">Web Development</a>
+                            <a href="#" class="tag">JavaScript</a>
+                            <a href="#" class="tag">AI</a>
+                            <a href="#" class="tag">Trends</a>
+                        </div>
+                        <div class="share-buttons">
+                            <span>Share:</span>
+                            <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="share-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="author-bio">
+                        <div class="author-avatar rounded-circle">
+                            <img src="/cooking_images/atom.PNG" alt="Author Avatar">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mighty Atom</h4>
+                            <p>Senior Web Developer at Goodisoft Technologies with over 8 years of experience in frontend and backend development. Passionate about JavaScript frameworks and emerging web technologies.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comments-section">
+                        <h3>5 Comments</h3>
+                        
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U1" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>Michael Brown</h5>
+                                    <span class="comment-date">June 16, 2023</span>
+                                </div>
+                                <p>Great article! I've been experimenting with WebAssembly recently, and it's truly revolutionary for performance-intensive web applications.</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U2" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>Sarah Johnson</h5>
+                                    <span class="comment-date">June 17, 2023</span>
+                                </div>
+                                <p>I completely agree with the AI-powered development section. GitHub Copilot has been a game-changer for my workflow!</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U3" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>David Wilson</h5>
+                                    <span class="comment-date">June 18, 2023</span>
+                                </div>
+                                <p>What are your thoughts on the future of traditional server-rendered applications? Do you think they'll become obsolete with the rise of Jamstack?</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-form">
+                        <h3>Leave a Comment</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                </div>
+                            
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Your Comment"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+        <div class="container">
+            <h3 class="text-center">Related Articles</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80" alt="Mobile App Development">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">May 28, 2023</div>
+                            <h4 class="related-post-title">Flutter vs React Native: Which is Better in 2023?</h4>
+                            <a href="/blogpost/Flutter vs ReactBlogtPost.html" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Data Science">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">April 10, 2023</div>
+                            <h4 class="related-post-title">How Data Science is Transforming Business Decision Making</h4>
+                            <a href="#" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="AI">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">March 22, 2023</div>
+                            <h4 class="related-post-title">The Ethical Implications of AI in Modern Society</h4>
+                            <a href="#" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/index.html">Home</a></li>
+                        <li class="mb-2"><a href="/about.html">About Us</a></li>
+                        <li class="mb-2"><a href="/services.html">Services</a></li>
+                        <li class="mb-2"><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="/services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="/services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a class="back-to-top btn btn-primary rounded-circle shadow" href="#">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Third-Party JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            window.addEventListener('load', () => {
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Navbar Active Link & Smooth Scrolling
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .footer a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+
+                    // If it's an on-page anchor (#id), do smooth scroll
+                    if (targetId.startsWith("#")) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    // Otherwise, allow browser to follow normal links (e.g., .html pages)
+                });
+            });
+
+            // Navbar Shadow on Scroll
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 50) {
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                });
+            }
+
+            // Comment form submission
+            const commentForm = document.querySelector('.comment-form form');
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your comment! It will be reviewed before publishing.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Application - Goodisoft Technologies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+
+        
+         h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+          a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        
+
+           /* Navigation */
+                 .brand{
+    color: #2962ff;
+}
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 100px 0;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+.nav-link{
+    font-weight: bold !important;
+}
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .program-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: none;
+            height: 100%;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-box i {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+/* Remove Bootstrap blue highlight on form inputs */
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+    box-shadow: none !important;
+    border-color: var(--gray) !important; /* Optional: set to your preferred color */
+    outline: none !important;
+}
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .preview-section {
+            background-color: var(--primary-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .preview-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .preview-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        #previewModal .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -2rem;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+               
+                   <h4 class="brand">  <img class="rounded-circle mx-1" alt="Goodisoft Technologies Logo"
+                    src="images/goodie_logo_enhanced.png" /> GoodiSoft</h4>
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Academy/IT Training</h1>
+                    <p class="lead mb-4">Launch your tech career with Goodisoft Technologies. Gain hands-on experience with real-world projects under expert mentorship.</p>
+                    <a href="#application-form" class="btn btn-primary btn-lg">Apply Now</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="IT Training" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Industrial Training & SIWES Program</h2>
+                <p class="lead">Comprehensive training designed to bridge the gap between academic knowledge and industry demands</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card program-card shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto"><i class="fas fa-laptop-code"></i></div>
+                        <h5 class="mb-3">Web Development</h5>
+                        <p class="text-muted">Master frontend and backend technologies including HTML, CSS, JavaScript, React, Node.js, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto"><i class="fas fa-mobile-alt"></i></div>
+                        <h5 class="mb-3">Mobile App Development</h5>
+                        <p class="text-muted">Build cross-platform mobile applications using Flutter, React Native, and native iOS/Android development.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card shadow-sm p-4 text-center">
+                        <div class="icon-box mx-auto"><i class="fas fa-brain"></i></div>
+                        <h5 class="mb-3">AI & Data Science</h5>
+                        <p class="text-muted">Dive into machine learning, data analysis, and artificial intelligence applications using Python and R.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="section-padding bg-light" id="application-form">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Application Form</h2>
+                <p class="lead">Complete the form below to start your application process</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white p-4 p-lg-5 rounded shadow-sm">
+                        <form id="itApplicationForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                                        <label for="firstName">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                        <label for="lastName">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="applicantEmail" placeholder="Email Address" required>
+                                        <label for="applicantEmail">Email Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                                        <label for="phone">Phone Number</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="institution" placeholder="Institution" required>
+                                        <label for="institution">Institution</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="course" placeholder="Course of Study" required>
+                                        <label for="course">Course of Study</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="programType" required>
+                                          
+                                            <option value="SIWES">SIWES Industrial Training</option>
+                                            <option value="IT">Information Technology (IT)</option>
+                                            <option value="Internship">Internship</option>
+                                        </select>
+                                        <label for="programType">Program Type</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="track" required>
+                                            
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Mobile App Development">Mobile App Development</option>
+                                            <option value="Data Science & AI">Data Science & AI</option>
+                                            <option value="Blockchain">Blockchain Technology</option>
+                                            <option value="UI/UX Design">UI/UX Design</option>
+                                            <option value="Cybersecurity">Cybersecurity</option>
+                                            <option value="Cloud Computing">Cloud Computing</option>
+                                        </select>
+                                        <label for="track">Preferred Track</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="startDate" required>
+                                        <label for="startDate">Preferred Start Date</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                           <select class="form-select" id="duration" required>
+                                            <option value="1 month">1 Month</option>
+                                            <option value="2 months">2 Months</option>
+                                            <option value="3 months">3 Months</option>
+                                            <option value="6 months">6 Months</option>
+                                        
+                                            <option value="1 year">1 Year</option>
+                                            <option value="1 year and 6 months">1 Year and 6 Months</option>
+                                        </select>
+                                        <label for="duration">Duration</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="experience" placeholder="Previous Experience" style="height: 100px"></textarea>
+                                        <label for="experience">Previous Experience (if any)</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="expectations" placeholder="Expectations" required style="height: 100px"></textarea>
+                                        <label for="expectations">What do you hope to achieve from this program?</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the <a href="#">terms and conditions</a> of the program
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <!-- <button type="button" class="btn btn-outline-primary me-3" id="previewBtn">Preview Application</button> -->
+                                <button type="submit" class="btn btn-primary">Submit Application</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Review Your Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="preview-section">
+                        <h5 class="mb-4">Personal Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Full Name</div>
+                                <div id="preview-name"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Email Address</div>
+                                <div id="preview-email"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Phone Number</div>
+                                <div id="preview-phone"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Institution</div>
+                                <div id="preview-institution"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Course of Study</div>
+                                <div id="preview-course"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h5 class="mb-4">Program Details</h5>
+                        <div class="row">
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Program Type</div>
+                                <div id="preview-program-type"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Preferred Track</div>
+                                <div id="preview-track"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Start Date</div>
+                                <div id="preview-start-date"></div>
+                            </div>
+                            <div class="col-md-6 preview-item">
+                                <div class="preview-label">Duration</div>
+                                <div id="preview-duration"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="preview-section">
+                        <h5 class="mb-4">Additional Information</h5>
+                        <div class="preview-item">
+                            <div class="preview-label">Previous Experience</div>
+                            <div id="preview-experience"></div>
+                        </div>
+                        <div class="preview-item">
+                            <div class="preview-label">Program Expectations</div>
+                            <div id="preview-expectations"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit Application</button>
+                    <button type="button" class="btn btn-primary" id="confirmSubmit">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img style="border-radius: 0.5rem; width: 80px; height: auto;" alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="images/goodie_logo_enhanced.png" />
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get form and preview button
+            const form = document.getElementById('itApplicationForm');
+            const previewBtn = document.getElementById('previewBtn');
+            const confirmSubmitBtn = document.getElementById('confirmSubmit');
+            const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+            
+            // Preview button click event
+            previewBtn.addEventListener('click', function() {
+                // Validate form before showing preview
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                
+                // Populate preview modal with form data
+                document.getElementById('preview-name').textContent = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
+                document.getElementById('preview-email').textContent = document.getElementById('applicantEmail').value;
+                document.getElementById('preview-phone').textContent = document.getElementById('phone').value;
+                document.getElementById('preview-institution').textContent = document.getElementById('institution').value;
+                document.getElementById('preview-course').textContent = document.getElementById('course').value;
+                document.getElementById('preview-program-type').textContent = document.getElementById('programType').value;
+                document.getElementById('preview-track').textContent = document.getElementById('track').value;
+                
+                // Format date for preview
+                const startDate = new Date(document.getElementById('startDate').value);
+                document.getElementById('preview-start-date').textContent = startDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                document.getElementById('preview-duration').textContent = document.getElementById('duration').value + ' months';
+                document.getElementById('preview-experience').textContent = document.getElementById('experience').value || 'None provided';
+                document.getElementById('preview-expectations').textContent = document.getElementById('expectations').value;
+                
+                // Show the preview modal
+                previewModal.show();
+            });
+            
+            // Confirm submit button in modal
+            confirmSubmitBtn.addEventListener('click', function() {
+                // Here you would typically send the form data to a server
+                alert('Application submitted successfully! We will contact you soon.');
+                form.reset();
+                previewModal.hide();
+                
+                // For demonstration purposes, we're just showing an alert
+                // In a real application, you would submit the form data to a server here
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // If form is submitted directly (without preview), show preview first
+                previewBtn.click();
+            });
+        });
+    </script>
+</body>
+</html>

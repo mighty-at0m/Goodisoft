@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Learning Resources - Goodisoft Technologies</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+        .brand{
+    color: var(--primary);
+}
+
+               .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 100px 0;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .video-card {
+            position: relative;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .video-thumbnail img {
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-left: 4px;
+        }
+
+        .video-card:hover .play-btn {
+            background-color: var(--primary);
+            opacity: 1;
+        }
+
+        .video-card:hover .play-btn i {
+            color: white;
+        }
+
+        .category-filter {
+            margin-bottom: 30px;
+        }
+
+        .category-filter .btn {
+            margin: 5px;
+            border-radius: 50px;
+            padding: 8px 20px;
+        }
+
+        .subscribe-section {
+            background-color: var(--primary-light);
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+  a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer {
+            background-color: var(--dark);
+            color: var(--light-gray);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+         h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn i {
+            font-size: 28px;
+            color: #2962ff;
+        }
+
+        .video-thumbnail:hover .play-btn {
+            background: #2962ff;
+        }
+
+        .video-thumbnail:hover .play-btn i {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+               
+                   <h4 class="brand">  <img class="rounded-circle mx-1" alt="Goodisoft Technologies Logo"
+                    src="images/goodie_logo_enhanced.png" /> GoodiSoft</h4>
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">Free Courses &amp; Tutorials</h1>
+                    <p class="lead mb-4">Expand your skills with our comprehensive collection of free programming
+                        tutorials, web development courses, and technology guides from Goodisoft YouTube channel.</p>
+                    <a class="btn btn-primary btn-lg" href="https://www.youtube.com/@goodisoft" target="_blank">
+                        <i class="fab fa-youtube me-2"></i> Visit Our YouTube Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Category Filter -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="text-center category-filter">
+                <h3 class="mb-4">Filter by Category</h3>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <button class="btn btn-primary active" data-filter="all">All Videos</button>
+                    <button class="btn btn-outline-primary" data-filter="web">Web Development</button>
+                    <button class="btn btn-outline-primary" data-filter="mobile">Mobile Development</button>
+                    <button class="btn btn-outline-primary" data-filter="ai">AI &amp; Data Science</button>
+                    <button class="btn btn-outline-primary" data-filter="beginner">Beginner Friendly</button>
+                    <button class="btn btn-outline-primary" data-filter="advanced">Advanced Topics</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Video Gallery Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row" id="video-gallery">
+                <!-- Video 1 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="web beginner" id="web beginner">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/bQvLVIZVJC8"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/bQvLVIZVJC8/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary">Web Development</span>
+                                <span class="text-muted small">45 min</span>
+                            </div>
+                            <h5 class="card-title">HTML &amp; CSS Crash Course for Beginners</h5>
+                            <p class="card-text">Learn the fundamentals of web development with this comprehensive HTML
+                                and CSS tutorial.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://www.youtube.com/watch?v=bQvLVIZVJC8" target="_blank">Watch Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="web advanced">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/9Kfvb6gaFm0"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/9Kfvb6gaFm0/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary">Web Development</span>
+                                <span class="text-muted small">1h 20min</span>
+                            </div>
+                            <h5 class="card-title">React JS Complete Tutorial 2023</h5>
+                            <p class="card-text">Master React JS with this comprehensive tutorial covering hooks,
+                                context API, and more.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://www.youtube.com/watch?v=9Kfvb6gaFm0" target="_blank">Watch Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="mobile beginner">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/XcliPjqhNs8"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/XcliPjqhNs8/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-success">Mobile Development</span>
+                                <span class="text-muted small">1h 10min</span>
+                            </div>
+                            <h5 class="card-title">Flutter Mobile App Development for Beginners</h5>
+                            <p class="card-text">Build your first cross-platform mobile app with Flutter and Dart
+                                programming language.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://youtu.be/XcliPjqhNs8?si=-wlgEBlIU6w4qh5I" target="_blank">Watch
+                                Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="ai advanced">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/GpRFcmsXo3o"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/GpRFcmsXo3o/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-danger">AI &amp; Data Science</span>
+                                <span class="text-muted small">2h 15min</span>
+                            </div>
+                            <h5 class="card-title">Machine Learning with Python Tutorial</h5>
+                            <p class="card-text">Learn how to implement machine learning algorithms using Python and
+                                scikit-learn.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://youtu.be/GpRFcmsXo3o?si=ylgZvxL6UF4Wocad" target="_blank">Watch
+                                Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 5 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="web beginner">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/e7lrKyrUSSU"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/e7lrKyrUSSU/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary">Web Development</span>
+                                <span class="text-muted small">55 min</span>
+                            </div>
+                            <h5 class="card-title">JavaScript Fundamentals for Beginners</h5>
+                            <p class="card-text">Master the basics of JavaScript programming including variables,
+                                functions, and DOM manipulation.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://youtu.be/e7lrKyrUSSU?si=cbN17v4oyb_mLU-w" target="_blank">Watch
+                                Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 6 -->
+                <div class="col-md-6 col-lg-4 mb-4" data-category="ai beginner">
+                    <div class="card h-100 shadow-sm video-card">
+                        <div class="video-thumbnail" data-bs-target="#videoModal" data-bs-toggle="modal"
+                            data-video="https://www.youtube.com/embed/fIj8zgV_DO0"><img alt="Video Thumbnail"
+                                class="img-fluid rounded" src="https://img.youtube.com/vi/fIj8zgV_DO0/hqdefault.jpg" />
+                            <div class="play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-danger">AI &amp; Data Science</span>
+                                <span class="text-muted small">1h 5min</span>
+                            </div>
+                            <h5 class="card-title">Python Programming for Absolute Beginners</h5>
+                            <p class="card-text">Start your programming journey with Python. Learn syntax, data
+                                structures, and basic algorithms.</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a class="btn btn-sm btn-outline-primary w-100"
+                                href="https://youtu.be/vHks3Oessdo?si=Q8JfAFkLfyPOMcdQ" target="_blank">Watch
+                                Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a class="btn btn-primary btn-lg" href="https://www.youtube.com/@goodisoft/videos" target="_blank">
+                    <i class="fab fa-youtube me-2"></i> View All Videos on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Subscribe Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="subscribe-section p-5 text-center">
+                <h2 class="mb-3">Never Miss a New Tutorial</h2>
+                <p class="lead mb-4">Subscribe to our YouTube channel and turn on notifications to get updates on new
+                    tutorials.</p>
+                <a class="btn btn-danger btn-lg" href="https://www.youtube.com/@goodisoft?sub_confirmation=1"
+                    target="_blank">
+                    <i class="fab fa-youtube me-2"></i> Subscribe to Goodisoft
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Learning Paths Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Structured Learning Paths</h2>
+                <p class="lead">Follow these curated paths to systematically build your skills</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-primary-light text-primary rounded-circle mx-auto mb-4"
+                                style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-laptop-code fa-2x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Frontend Developer Path</h4>
+                            <p class="card-text">Master HTML, CSS, JavaScript and modern frameworks like React to build
+                                interactive websites.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> HTML &amp; CSS
+                                    Fundamentals</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> JavaScript
+                                    Programming</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> React JS Complete
+                                    Guide</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Responsive Design
+                                    Principles</li>
+                            </ul>
+                            <a class="btn btn-outline-primary mt-3" href="#">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-primary-light text-primary rounded-circle mx-auto mb-4"
+                                style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-mobile-alt fa-2x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">Mobile Developer Path</h4>
+                            <p class="card-text">Learn to build cross-platform mobile applications with Flutter and Dart
+                                programming.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Dart Programming
+                                    Basics</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Flutter Widgets
+                                    Deep Dive</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> State Management
+                                </li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> API Integration
+                                </li>
+                            </ul>
+                            <a class="btn btn-outline-primary mt-3" href="#">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-primary-light text-primary rounded-circle mx-auto mb-4"
+                                style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-brain fa-2x"></i>
+                            </div>
+                            <h4 class="card-title mb-3">AI &amp; Data Science Path</h4>
+                            <p class="card-text">Dive into Python, data analysis, machine learning and artificial
+                                intelligence concepts.</p>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Python
+                                    Programming</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Data Analysis
+                                    with Pandas</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Machine Learning
+                                    Algorithms</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Neural Networks
+                                    Introduction</li>
+                            </ul>
+                            <a class="btn btn-outline-primary mt-3" href="#">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+  <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img style="border-radius: 0.5rem; width: 80px; height: auto;" alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="images/goodie_logo_enhanced.png" />
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <a class="back-to-top btn btn-primary rounded-circle shadow" href="#">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Category filtering
+            const filterButtons = document.querySelectorAll('.category-filter .btn');
+            const videoCards = document.querySelectorAll('#video-gallery > div');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    videoCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+    <!-- Video Modal -->
+    <div aria-hidden="true" class="modal fade" id="videoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0"
+                            id="videoFrame" src="" title="YouTube video player">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+
+        videoModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const videoUrl = button.getAttribute('data-video');
+            videoFrame.src = videoUrl + "?autoplay=1";
+        });
+
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            videoFrame.src = "";
+        });
+    </script>
+</body>
+
+</html>

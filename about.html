@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About Us - Goodisoft Technologies</title>
+    <!-- Third-Party CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Reuse the same CSS from index.html */
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+            --success: #4caf50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader .loader {
+            text-align: center;
+        }
+
+        .preloader p {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            font-size: 0.875rem;
+        }
+
+        .top-bar .contact-info i {
+            margin-right: 0.25rem;
+        }
+
+        .top-bar .social-links a {
+            color: var(--white);
+            margin-left: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .about-hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* Card Styles */
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-box i {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary) url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+
+        .stats-section h3 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .stats-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Team Section */
+        .team-member {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            transition: all 0.5s ease;
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-member:hover img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: rgba(41, 98, 255, 0.8);
+            color: var(--white);
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-info {
+            transform: translateY(0);
+        }
+
+        /* Values Section */
+        .value-card {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-light);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            left: -10px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .about-hero {
+                text-align: center;
+                padding: 5rem 0 4rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-content::after {
+                left: -10px !important;
+                right: auto !important;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .about-hero {
+                text-align: center;
+                padding: 4rem 0 3rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading Goodisoft Technologies...</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar bg-dark text-white py-2 d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <span class="me-3" style="font-size: medium;"><i class="fas fa-phone-alt"></i> (+234) 806 584 5092
+                    </span>
+                    <span style="font-size: medium;"><i class="fas fa-envelope"></i> info@goodisoft.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="instagram.com/goodisoft?igsh=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="">
+                
+                <img class="rounded-circle" alt="Goodisoft Technologies Logo"
+                    src="images/goodie logo.PNG" />
+                            <img alt="Goodisoft Technologies Logo"
+                    src="https://placehold.co/180x50/ffffff/2962ff?text=GoodiSoft&amp;font=poppins" />
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">About Goodisoft Technologies</h1>
+                    <p class="lead mb-4">We are a team of passionate innovators dedicated to transforming businesses through cutting-edge technology solutions and empowering the next generation of tech professionals.</p>
+                    <a class="btn btn-primary" href="#our-story">Our Story</a>
+                </div>
+                <div class="col-lg-6">
+                    <img alt="Goodisoft Team" class="img-fluid rounded shadow" src="images/goodi_team.jpg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section-padding" id="our-story">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <span class="text-primary fw-bold">OUR JOURNEY</span>
+                    <h2 class="mb-4">From Vision to Reality</h2>
+                    <p class="lead mb-5">Founded with a vision to bridge the gap between technology and business needs, Goodisoft Technologies has evolved into a leading software development and IT training company.</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018</div>
+                        <h4>Company Foundation</h4>
+                        <p>Goodisoft Technologies was founded with a mission to deliver innovative software solutions and quality IT education.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019</div>
+                        <h4>First Major Project</h4>
+                        <p>Successfully delivered our first enterprise software solution, establishing our reputation for quality and reliability.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h4>Expansion of Training Programs</h4>
+                        <p>Launched comprehensive IT training programs to address the growing demand for skilled tech professionals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h4>AI & Blockchain Specialization</h4>
+                        <p>Expanded our service offerings to include AI solutions and blockchain development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h4>100+ Projects Milestone</h4>
+                        <p>Reached the milestone of completing over 100 projects for clients across various industries.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h4>500+ Students Trained</h4>
+                        <p>Celebrated training over 500 students through our various IT training programs and workshops.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm p-5">
+                        <div class="icon-box mx-auto"><i class="fas fa-bullseye"></i></div>
+                        <h3 class="text-center mb-3">Our Mission</h3>
+                        <p class="text-center">To empower businesses with innovative technology solutions and equip individuals with the skills needed to thrive in the digital economy through comprehensive training and mentorship.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow-sm p-5">
+                        <div class="icon-box mx-auto"><i class="fas fa-eye"></i></div>
+                        <h3 class="text-center mb-3">Our Vision</h3>
+                        <p class="text-center">To be Africa's leading technology solutions provider and premier IT training institution, recognized for innovation, excellence, and transformative impact on businesses and careers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold">OUR VALUES</span>
+                <h2 class="mb-3">What We Stand For</h2>
+                <p class="lead">The principles that guide everything we do</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4>Innovation</h4>
+                        <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that give our clients a competitive advantage.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-medal"></i></div>
+                        <h4>Excellence</h4>
+                        <p>We are committed to delivering the highest quality in everything we do, from our software solutions to our training programs.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h4>Collaboration</h4>
+                        <p>We believe in working closely with our clients and students to understand their unique needs and deliver personalized solutions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>Knowledge Sharing</h4>
+                        <p>We are passionate about sharing our expertise and empowering others with the skills needed to succeed in the tech industry.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Integrity</h4>
+                        <p>We conduct our business with honesty, transparency, and ethical practices, building trust with our clients and community.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>Growth Mindset</h4>
+                        <p>We continuously learn, adapt, and improve to stay at the forefront of technology and help our clients and students grow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-light" id="team">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold">OUR TEAM</span>
+                <h2 class="mb-3">Meet Our Experts</h2>
+                <p class="lead">Talented professionals dedicated to your success</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="team-member">
+                        <img alt="Team Member" src="images/goodie.jpg" />
+                        <div class="team-info">
+                            <h4>Etim Goodnews</h4>
+                            <p>CEO & Founder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team-member">
+                        <img alt="Team Member" src="images/madam.jpg" />
+                        <div class="team-info">
+                            <h4>Caroline</h4>
+                            <p>Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team-member">
+                        <img alt="Team Member" src="images/emma.jpg" />
+                        <div class="team-info">
+                            <h4>Emmanuel</h4>
+                            <p>Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="team-member">
+                        <img alt="Team Member" src="images/atom.PNG" />
+                        <div class="team-info">
+                            <h4>Chibuike Anthony</h4>
+                            <p>Junior Developer(frontend)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a class="btn btn-outline-primary" href="#">View Full Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section section-padding text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                    <h3>150+</h3>
+                    <p class="mb-0">Projects Completed</p>
+                </div>
+                <div class="col-6 col-md-3 mb-4 mb-md-0">
+                    <h3>50+</h3>
+                    <p class="mb-0">Happy Clients</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3>25+</h3>
+                    <p class="mb-0">Expert Team</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3>500+</h3>
+                    <p class="mb-0">Students Trained</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section-padding bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-3">Ready to Work With Us?</h2>
+            <p class="lead mb-4">Whether you need custom software solutions or want to enhance your tech skills, we're here to help.</p>
+            <a class="btn btn-light me-2" href="contact.html">Contact Us</a>
+            <a class="btn btn-outline-light" href="it-application.html">Apply for IT</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a class="back-to-top btn btn-primary rounded-circle shadow" href="#">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Third-Party JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            window.addEventListener('load', () => {
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Navbar Active Link & Smooth Scrolling
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .footer a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+
+                    // If it's an on-page anchor (#id), do smooth scroll
+                    if (targetId.startsWith("#")) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    // Otherwise, allow browser to follow normal links (e.g., .html pages)
+                });
+            });
+
+            // Navbar Shadow on Scroll
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 50) {
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

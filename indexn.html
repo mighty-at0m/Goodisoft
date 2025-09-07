@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goodisoft Technologies - Software Development & Training</title>
+  <!-- Third-Party CSS Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2962ff;
+      --primary-light: #e3f2fd;
+      --secondary: #ff6d00;
+      --dark: #212121;
+      --light: #f5f5f5;
+      --gray: #757575;
+      --light-gray: #e0e0e0;
+      --white: #ffffff;
+      --black: #000000;
+      --success: #4caf50;
+      --danger: #f44336;
+      --warning: #ff9800;
+      --info: #2196f3;
+    }
+    body { font-family: 'Poppins', sans-serif; color: var(--dark); line-height: 1.6; overflow-x: hidden; background-color: var(--white); }
+    h1,h2,h3,h4,h5,h6 { font-weight: 600; line-height: 1.2; }
+    .btn { font-weight: 500; padding: 0.75rem 1.75rem; border-radius: 0.375rem; transition: all 0.3s ease; }
+    .btn-primary { background-color: var(--primary); border-color: var(--primary); }
+    .btn-primary:hover { background-color: #1a4fd8; border-color: #1a4fd8; }
+    .btn-outline-primary { color: var(--primary); border-color: var(--primary); }
+    .btn-outline-primary:hover { background-color: var(--primary); color: var(--white); }
+    .preloader { position: fixed; top:0; left:0; width:100%; height:100%; background: var(--white); display:flex; justify-content:center; align-items:center; z-index:9999; transition: opacity 0.5s ease; }
+    .stats-section { background: var(--primary) url('https://www.transparenttextures.com/patterns/cubes.png'); }
+    .stats-section h3 { font-size: 3rem; font-weight: 700; }
+    .counter { font-size: 3rem; font-weight: 700; }
+    /* Typewriter Cursor */
+    .typewriter { white-space: nowrap; overflow: hidden; border-right: .12em solid currentColor; animation: caret-blink .75s steps(1) infinite; }
+    .typewriter.done { border-right: none; }
+    @keyframes caret-blink { 50% { border-color: transparent; } }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand" href="#"><h4 class="brand"><img class="rounded-circle mx-1" src="images/goodie_logo_enhanced.png" alt="Logo" /> GoodiSoft</h4></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="learning.html">Free Learning</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h1 class="display-4 fw-bold mb-4">Innovative Software Solutions for Your Business</h1>
+          <p class="lead mb-4">Goodisoft Technologies delivers cutting-edge software development, AI solutions, and IT training to help your business thrive.</p>
+          <div class="d-flex gap-3"><a class="btn btn-primary" href="services.html">Our Services</a><a class="btn btn-outline-primary" href="contact.html">Contact Us</a></div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left"><img class="img-fluid rounded shadow" src="images/game-development-game-programming-1920x1080.jpg" alt="Hero" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section section-padding text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in-up"><h3 class="counter" data-target="150">0</h3><p>Projects Completed</p></div>
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in-up" data-aos-delay="100"><h3 class="counter" data-target="50">0</h3><p>Happy Clients</p></div>
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in-up" data-aos-delay="200"><h3 class="counter" data-target="25">0</h3><p>Expert Team</p></div>
+        <div class="col-6 col-md-3 mb-4" data-aos="zoom-in-up" data-aos-delay="300"><h3 class="counter" data-target="500">0</h3><p>Students Trained</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section section-padding bg-primary text-white">
+    <div class="container text-center">
+      <div data-aos="zoom-in">
+        <h2 class="mb-3 typewriter" id="cta-type"></h2>
+        <p class="lead mb-4" id="cta-para"></p>
+        <a class="btn btn-light me-2" href="#contact" data-aos="fade-up" data-aos-delay="200">Contact Us</a>
+        <a class="btn btn-outline-light" href="it-application.html" data-aos="fade-up" data-aos-delay="300">Apply for IT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer pt-5 pb-3 text-white-50" data-aos="fade-up">
+    <div class="container text-center"><p>© 2024 Goodisoft Technologies. All rights reserved.</p></div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+
+    // Preloader
+    window.addEventListener("load", ()=>{
+      const preloader=document.querySelector(".preloader");
+      if(preloader){ preloader.style.opacity="0"; setTimeout(()=>{ preloader.style.display="none";},500); }
+    });
+
+    // Stats Counter
+    const counters=document.querySelectorAll(".counter");
+    const animateCounters=()=>{
+      counters.forEach(counter=>{
+        const target=+counter.getAttribute("data-target");
+        let count=0;
+        const step=Math.ceil(target/200);
+        const update=()=>{
+          count+=step;
+          if(count<target){ counter.textContent=count; requestAnimationFrame(update); }
+          else { counter.textContent=target+"+"; }
+        };
+        update();
+      });
+    };
+    const statsSection=document.querySelector(".stats-section");
+    if(statsSection){
+      const io=new IntersectionObserver(entries=>{
+        if(entries[0].isIntersecting){ animateCounters(); io.disconnect(); }
+      },{threshold:0.3});
+      io.observe(statsSection);
+    }
+
+    // CTA Typewriter
+    document.addEventListener("DOMContentLoaded",()=>{
+      const headingText="Ready to Transform Your Business or Career?";
+      const paraText="Whether you need custom software solutions or want to enhance your tech skills, we're here to help.";
+      const h=document.getElementById("cta-type");
+      const p=document.getElementById("cta-para");
+      let i=0;
+      function type(){
+        if(i<headingText.length){ h.textContent+=headingText.charAt(i++); setTimeout(type,70); }
+        else { h.classList.add("done"); setTimeout(()=>typePara(),500); }
+      }
+      function typePara(){ let j=0; function tp(){ if(j<paraText.length){ p.textContent+=paraText.charAt(j++); setTimeout(tp,20);} } tp(); }
+      type();
+    });
+  </script>
+</body>
+</html>

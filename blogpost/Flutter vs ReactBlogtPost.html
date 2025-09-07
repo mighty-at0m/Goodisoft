@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Flutter vs React Native: Which is Better in 2023? - Goodisoft Technologies</title>
+    <!-- Third-Party CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Reuse the same CSS from index.html */
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+            --success: #4caf50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader .loader {
+            text-align: center;
+        }
+
+        .preloader p {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            font-size: 0.875rem;
+        }
+
+        .top-bar .contact-info i {
+            margin-right: 0.25rem;
+        }
+
+        .top-bar .social-links a {
+            color: var(--white);
+            margin-left: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Blog Hero Section */
+        .blog-hero {
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        .blog-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 50px 0;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-meta span {
+            margin-right: 20px;
+        }
+
+        .article-meta i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .article-image {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2, .article-body h3, .article-body h4 {
+            margin: 2rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .article-body blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--gray);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--light-gray);
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        .tags-share {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .tags {
+            display: flex;
+            align-items: center;
+        }
+
+        .tags span {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .share-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .share-buttons span {
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--light);
+            color: var(--dark);
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Author Bio */
+        .author-bio {
+            display: flex;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .author-avatar {
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+
+        .author-social a {
+            color: var(--dark);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .author-social a:hover {
+            color: var(--primary);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin: 3rem 0;
+        }
+
+        .comments-section h3 {
+            margin-bottom: 2rem;
+        }
+
+        .comment {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .comment-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-header h5 {
+            margin-bottom: 0;
+        }
+
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .comment p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .comment-reply {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        /* Comment Form */
+        .comment-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+
+        .comment-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin: 3rem 0;
+        }
+
+        .related-posts h3 {
+            margin-bottom: 2rem;
+        }
+
+        .related-post {
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .related-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-post-thumbnail {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .related-post-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .related-post:hover .related-post-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .related-post-content {
+            padding: 20px;
+        }
+
+        .related-post-date {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .related-post-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .related-post-link {
+            font-weight: 500;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .related-post-link i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .related-post-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .blog-hero {
+                text-align: center;
+                padding: 5rem 0 3rem;
+            }
+
+            .blog-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .tags-share {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .share-buttons {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .blog-hero {
+                text-align: center;
+                padding: 4rem 0 2rem;
+            }
+
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-avatar {
+                margin: 0 auto 20px;
+            }
+
+            .comment {
+                flex-direction: column;
+            }
+
+            .comment-avatar {
+                margin: 0 auto 15px;
+            }
+
+            .comment-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .comment-date {
+                margin-top: 5px;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading Goodisoft Technologies...</p>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar bg-dark text-white py-2 d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="contact-info">
+                    <span class="me-3" style="font-size: medium;"><i class="fas fa-phone-alt"></i> (+234) 806 584 5092
+                    </span>
+                    <span style="font-size: medium;"><i class="fas fa-envelope"></i> info@goodisoft.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="instagram.com/goodisoft?igsh=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img alt="Goodisoft Technologies Logo"
+                    src="https://placehold.co/180x50/ffffff/2962ff?text=GoodiSoft&amp;font=poppins" />
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="/it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1>Flutter vs React Native: Which is Better in 2023?</h1>
+                    <div class="article-meta">
+                        <span><i class="fas fa-user"></i> Admin</span>
+                        <span><i class="fas fa-calendar"></i> May 28, 2023</span>
+                        <span><i class="fas fa-folder"></i> Mobile Development</span>
+                        <span><i class="fas fa-comments"></i> 12 Comments</span>
+                        <span><i class="fas fa-clock"></i> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80" alt="Flutter vs React Native">
+                    </div>
+
+                    <div class="article-body">
+                        <p>In the world of cross-platform mobile app development, two frameworks have emerged as clear leaders: Flutter and React Native. Both offer the promise of building apps for multiple platforms from a single codebase, but they take fundamentally different approaches. This comprehensive comparison examines Flutter vs React Native in 2023 to help you decide which framework is better for your next project.</p>
+
+                        <h2>What is React Native?</h2>
+                        <p>React Native, developed by Facebook (now Meta), is an open-source framework that allows developers to build mobile apps using JavaScript and React. It uses native components under the hood, providing a near-native experience while allowing code reuse across iOS and Android platforms.</p>
+
+                        <h2>What is Flutter?</h2>
+                        <p>Flutter is Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase. It uses the Dart programming language and provides its own set of customizable widgets that are rendered using Skia, Google's 2D graphics engine.</p>
+
+                        <h2>Performance Comparison</h2>
+                        <p>Performance is often the deciding factor when choosing between Flutter and React Native:</p>
+                        
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>React Native</th>
+                                    <th>Flutter</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rendering</td>
+                                    <td>Uses native components</td>
+                                    <td>Uses Skia engine for custom rendering</td>
+                                </tr>
+                                <tr>
+                                    <td>Startup Time</td>
+                                    <td>Generally good</td>
+                                    <td>Excellent (AOT compilation)</td>
+                                </tr>
+                                <tr>
+                                    <td>UI Performance</td>
+                                    <td>Good, but can suffer from bridge overhead</td>
+                                    <td>Excellent (60fps consistently)</td>
+                                </tr>
+                                <tr>
+                                    <td>Animation Performance</td>
+                                    <td>Good with careful optimization</td>
+                                    <td>Excellent (hardware-accelerated)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2>Development Experience</h2>
+                        <h3>React Native Development</h3>
+                        <p>React Native offers a familiar development experience for web developers already comfortable with JavaScript and React. The hot reload feature allows developers to see changes instantly, and the extensive npm ecosystem provides access to countless packages.</p>
+
+                        <h3>Flutter Development</h3>
+                        <p>Flutter provides a highly productive development environment with features like hot reload, a rich set of customizable widgets, and excellent documentation. While Dart may have a learning curve for JavaScript developers, its structured nature can lead to more maintainable codebases.</p>
+
+                        <h2>Ecosystem and Community</h2>
+                        <p>Both frameworks have vibrant communities, but there are differences:</p>
+                        
+                        <ul>
+                            <li><strong>React Native:</strong> Larger community due to JavaScript's popularity, extensive third-party library support</li>
+                            <li><strong>Flutter:</strong> Rapidly growing community, strong backing from Google, comprehensive official packages</li>
+                        </ul>
+
+                        <h2>When to Choose React Native</h2>
+                        <p>React Native might be the better choice if:</p>
+                        <ul>
+                            <li>Your team has strong JavaScript/React experience</li>
+                            <li>You need to integrate with existing JavaScript codebases</li>
+                            <li>Your app requires many third-party native modules</li>
+                            <li>You prioritize a larger talent pool for hiring</li>
+                        </ul>
+
+                        <h2>When to Choose Flutter</h2>
+                        <p>Flutter might be the better choice if:</p>
+                        <ul>
+                            <li>You prioritize performance and smooth animations</li>
+                            <li>You want a highly customized UI with consistent look across platforms</li>
+                            <li>You're building for more than just mobile (web, desktop)</li>
+                            <li>You prefer a more structured language (Dart) over JavaScript</li>
+                        </ul>
+
+                        <blockquote>
+                            "The choice between Flutter and React Native ultimately depends on your specific project requirements, team expertise, and performance needs."
+                        </blockquote>
+
+                        <h2>Conclusion</h2>
+                        <p>Both Flutter and React Native are excellent choices for cross-platform development in 2023. React Native maintains its position with a massive community and JavaScript familiarity, while Flutter continues to gain traction with its superior performance and consistent UI experience.</p>
+
+                        <p>For most projects, you can't go wrong with either framework. Evaluate your specific needs, team skills, and project requirements to make the best decision for your development goals.</p>
+                    </div>
+
+                    <div class="tags-share">
+                        <div class="tags">
+                            <span>Tags:</span>
+                            <a href="#" class="tag">Mobile Development</a>
+                            <a href="#" class="tag">Flutter</a>
+                            <a href="#" class="tag">React Native</a>
+                            <a href="#" class="tag">Cross-Platform</a>
+                        </div>
+                        <div class="share-buttons">
+                            <span>Share:</span>
+                            <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="share-btn"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="author-bio">
+                        <div class="author-avatar">
+                            <img src="https://placehold.co/100x100/2962ff/ffffff?text=DA" alt="Author Avatar" class="rounded-circle">
+                        </div>
+                        <div class="author-info">
+                            <h4>Daniel Adeyemi</h4>
+                            <p>Mobile Development Lead at Goodisoft Technologies with expertise in both native and cross-platform development. Passionate about creating performant mobile experiences and mentoring developers.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comments-section">
+                        <h3>12 Comments</h3>
+                        
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U1" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>James Wilson</h5>
+                                    <span class="comment-date">May 29, 2023</span>
+                                </div>
+                                <p>Great comparison! I've been using React Native for years but recently started exploring Flutter. The performance difference is noticeable, especially with complex animations.</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U2" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>Sophia Chen</h5>
+                                    <span class="comment-date">May 30, 2023</span>
+                                </div>
+                                <p>As a JavaScript developer, React Native was an easier transition for me. But after giving Flutter a serious try, I'm impressed by how quickly you can build beautiful UIs.</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://placehold.co/70x70/2962ff/ffffff?text=U3" alt="User Avatar">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <h5>Michael Rodriguez</h5>
+                                    <span class="comment-date">June 2, 2023</span>
+                                </div>
+                                <p>The hot reload in Flutter is significantly faster than React Native's fast refresh in my experience. That alone has improved my development workflow tremendously.</p>
+                                <span class="comment-reply">Reply</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-form">
+                        <h3>Leave a Comment</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                </div>
+                             
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Your Comment"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+        <div class="container">
+            <h3 class="text-center">Related Articles</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Web Development">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">June 15, 2023</div>
+                            <h4 class="related-post-title">The Future of Web Development in 2023</h4>
+                            <a href="/blogpost/webDevBlogPost.html" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Data Science">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">April 10, 2023</div>
+                            <h4 class="related-post-title">How Data Science is Transforming Business Decision Making</h4>
+                            <a href="#" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-post">
+                        <div class="related-post-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="AI">
+                        </div>
+                        <div class="related-post-content">
+                            <div class="related-post-date">March 22, 2023</div>
+                            <h4 class="related-post-title">The Ethical Implications of AI in Modern Society</h4>
+                            <a href="#" class="related-post-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/index.html">Home</a></li>
+                        <li class="mb-2"><a href="/about.html">About Us</a></li>
+                        <li class="mb-2"><a href="/services.html">Services</a></li>
+                        <li class="mb-2"><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="/services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="/services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a class="back-to-top btn btn-primary rounded-circle shadow" href="#">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Third-Party JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            window.addEventListener('load', () => {
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Navbar Active Link & Smooth Scrolling
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .footer a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+
+                    // If it's an on-page anchor (#id), do smooth scroll
+                    if (targetId.startsWith("#")) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 70,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    // Otherwise, allow browser to follow normal links (e.g., .html pages)
+                });
+            });
+
+            // Navbar Shadow on Scroll
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 50) {
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                });
+            }
+
+            // Comment form submission
+            const commentForm = document.querySelector('.comment-form form');
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your comment! It will be reviewed before publishing.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

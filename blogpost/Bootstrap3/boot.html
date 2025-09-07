@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Goodisoft Technologies - Software Development &amp; Training</title>
+    <!-- Third-Party CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Slick CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <style>
+        /* span {
+        font-family: 'Inter', sans-serif;
+        font-size: xx-large;
+    } */
+        /* Remove duplicate styles and redundant blocks */
+        .testimonial-section {
+            background-color: white;
+        }
+
+        .carousel-item {
+            /* Add padding to the items themselves for better spacing */
+            padding: 0 5rem;
+        }
+
+        .testimonial-card {
+            background-color: #f8f9fa;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            /* Customizing arrow colors for better visibility */
+            background-color: #6c757d;
+            border-radius: 50%;
+            padding: 1rem;
+        }
+
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* Base Styles */
+        :root {
+            --primary: #2962ff;
+            --primary-light: #e3f2fd;
+            --secondary: #ff6d00;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --black: #000000;
+            --success: #4caf50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196f3;
+        }
+.brand{
+    color: var(--primary);
+}
+        .testimonial-item img {
+            width: 100px !important;
+            height: 100px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            /* ensures the face is centered */
+            margin: 0 auto 15px !important;
+            display: block !important;
+            /* ensures the image is centered in the flex container */
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .btn {
+            font-weight: 500;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #1a4fd8;
+            border-color: #1a4fd8;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader .loader {
+            text-align: center;
+        }
+
+        .preloader p {
+            margin-top: 1rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        
+
+         /* Top Bar */
+        .top-bar {
+            font-size: 0.875rem;
+        }
+
+        .top-bar .contact-info i {
+            margin-right: 0.25rem;
+        }
+
+        .top-bar .social-links a {
+            color: var(--white);
+            margin-left: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .top-bar .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            background-color: var(--white) !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            color: var(--dark);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        /* Trusted By Section */
+        .trusted-by img {
+            max-height: 40px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .trusted-by img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        /* Card Styles */
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: var(--primary-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-box i {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary) url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+
+        .stats-section h3 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .stats-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        .gallery-item {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            transition: all 0.5s ease;
+            /* max-height: 400px; */
+            /* min-width: 300px; */
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(41, 98, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Testimonials Section */
+        .testimonial-slider {
+            width: 100%;
+        }
+
+        .testimonial-slider .testimonial-item {
+            outline: none;
+            /* Prevents focus border */
+            padding: 0 1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 0 1rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            /* Font Awesome quote-left icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            line-height: 1;
+            z-index: 1;
+        }
+
+        .testimonial-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: -65px auto 1rem;
+            border: 5px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .rating {
+            color: var(--warning);
+        }
+
+        .slick-dots {
+            margin-top: 20px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: var(--primary);
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+
+        .form-control,
+        .form-select {
+            min-height: calc(3.5rem + 2px);
+            padding: 1rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid var(--light-gray);
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(41, 98, 255, 0.25);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+        }
+
+        .footer a {
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --dark: #f5f5f5; /* Light text color */
+            --light: #2a2a2a; /* Lighter dark background */
+            --white: #1a1a1a; /* Main dark background */
+            --black: #ffffff;
+            --gray: #aaaaaa;
+            --light-gray: #444444;
+            background-color: var(--white);
+            color: var(--dark);
+        }
+    
+        body.dark-mode .bg-white,
+        body.dark-mode .navbar,
+        body.dark-mode .navbar-scrolled {
+            background-color: var(--white) !important;
+        }
+    
+        body.dark-mode .bg-light {
+            background-color: var(--light) !important;
+        }
+        
+        body.dark-mode .hero-section {
+             background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        }
+    
+        body.dark-mode .card,
+        body.dark-mode .contact-info,
+        body.dark-mode .accordion-item,
+        body.dark-mode .modal-content {
+            background-color: #242424;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode .testimonial-card {
+           background-color: #2a2a2a;
+        }
+    
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6,
+        body.dark-mode .navbar-nav .nav-link,
+        body.dark-mode .brand,
+        body.dark-mode .accordion-button {
+            color: var(--dark);
+        }
+        
+        body.dark-mode .accordion-button::after {
+            filter: invert(1);
+        }
+    
+        body.dark-mode p,
+        body.dark-mode span,
+        body.dark-mode blockquote,
+        body.dark-mode li,
+        body.dark-mode label,
+        body.dark-mode .text-muted {
+            color: var(--gray) !important;
+        }
+        
+        body.dark-mode .text-dark{
+            color: var(--dark) !important;
+        }
+    
+        body.dark-mode .top-bar,
+        body.dark-mode .footer {
+            background-color: #111111;
+        }
+        
+        body.dark-mode .form-control {
+            background-color: #333;
+            color: var(--dark);
+            border-color: var(--light-gray);
+        }
+        
+        body.dark-mode .form-control::placeholder {
+            color: var(--gray);
+        }
+    
+        body.dark-mode .form-control:focus {
+            background-color: #333;
+            color: var(--dark);
+        }
+        
+        body.dark-mode .trusted-by img {
+            filter: grayscale(100%) invert(1);
+            opacity: 0.7;
+        }
+        
+        body.dark-mode .trusted-by img:hover {
+            filter: grayscale(0) invert(1);
+            opacity: 1;
+        }
+        
+        #darkModeToggle {
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 1199.98px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section {
+                text-align: center;
+                padding: 5rem 0 4rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-section .d-flex {
+                justify-content: center;
+            }
+
+            .navbar-nav {
+                padding-top: 1rem;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.5rem 0;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                text-align: center;
+                padding: 4rem 0 3rem;
+            }
+
+            .hero-section .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .hero-section .d-flex {
+                flex-direction: column;
+            }
+
+            .stats-section h3 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+    </link>
+    </link>
+    </link>
+    </link>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div  class="preloader">
+        <div class="loader">
+            
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading Goodisoft Technologies...</p>
+        </div>
+    </div>
+    <script>
+  window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.display = "none";
+    }
+  });
+</script>
+
+    <!-- Top Bar -->
+    <div class="top-bar bg-dark text-white py-2 d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="contact-info bg-dark">
+                    <span class="me-3" style="font-size: medium;"><i class="fas fa-phone-alt"></i> (+234) 806 584 5092</span>
+                    <span style="font-size: medium;"><i class="fas fa-envelope"></i> info@goodisoft.com</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a> 
+                    <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a> 
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> 
+                    <a href="instagram.com/goodisoft?igsh=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram"></i></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+               
+                   <h4 class="brand">  <img class="rounded-circle mx-1" alt="Goodisoft Technologies Logo"
+                    src="images/goodie_logo_enhanced.png" /> GoodiSoft</h4>
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="learning.html">Free Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <a class="btn btn-primary ms-lg-3" href="it-application.html">Apply for IT</a>
+                 <!-- Dark Mode Toggle Button -->
+                <button id="darkModeToggle" class="btn btn-outline-primary ms-lg-2">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4">Innovative Software Solutions for Your Business</h1>
+                    <p class="lead mb-4">Goodisoft Technologies delivers cutting-edge software development, AI
+                        solutions, and comprehensive IT training to help your business thrive in the digital age.</p>
+                    <div class="d-flex gap-3">
+                        <a class="btn btn-primary" href="services.html">Our Services</a>
+                        <a class="btn btn-outline-primary" href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img alt="A team collaborating on a software project" class="img-fluid rounded shadow"
+                        src="images/game-development-game-programming-1920x1080.jpg" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trusted By Section -->
+    <section class="trusted-by py-4 bg-light">
+        <div class="container">
+            <p class="text-center text-muted mb-4">TRUSTED BY LEADING COMPANIES</p>
+            <div class="d-flex flex-wrap align-items-center justify-content-center gap-5">
+                <img alt="Client Logo 1" src="https://placehold.co/150x50/f0f0f0/aaaaaa?text=InnovateCorp" />
+                <img alt="Client Logo 2" src="https://placehold.co/150x50/f0f0f0/aaaaaa?text=QuantumLeap" />
+                <img alt="Client Logo 3" src="https://placehold.co/150x50/f0f0f0/aaaaaa?text=ApexGlobal" />
+                <img alt="Client Logo 4" src="https://placehold.co/150x50/f0f0f0/aaaaaa?text=FutureTech" />
+                <img alt="Client Logo 5" src="https://placehold.co/150x50/f0f0f0/aaaaaa?text=SynergyInc" />
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img alt="Goodisoft team" class="img-fluid rounded shadow" src="images/goodie_staffs.jpg" />
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="text-primary fw-bold">ABOUT US</span>
+                    <h2 class="mb-4">Transforming Ideas Into Digital Reality</h2>
+                    <p class="mb-4">Goodisoft Technologies is a leading software development and IT training company
+                        dedicated to delivering innovative solutions and empowering the next generation of tech
+                        professionals.</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Expert Team
+                        </div>
+                        <div class="col-md-6 mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Quality
+                            Assurance</div>
+                        <div class="col-md-6 mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Innovative
+                            Solutions</div>
+                        <div class="col-md-6 mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Training
+                            Excellence</div>
+                    </div>
+                    <a class="btn btn-outline-primary mt-3" href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="stats-section section-padding text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4 mb-md-0" data-aos="fade-up">
+                    <h3>150+</h3>
+                    <p class="mb-0">Projects Completed</p>
+                </div>
+                <div class="col-6 col-md-3 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                    <h3>50+</h3>
+                    <p class="mb-0">Happy Clients</p>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <h3>25+</h3>
+                    <p class="mb-0">Expert Team</p>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <h3>500+</h3>
+                    <p class="mb-0">Students Trained</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Services Section -->
+    <section class="section-padding bg-light" id="services">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold">OUR SERVICES</span>
+                <h2 class="mb-3">Comprehensive Digital Solutions</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-globe"></i></div>
+                        <h5 class="mb-3">Web Development</h5>
+                        <p class="text-muted">Custom websites and web applications built with modern technologies.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-mobile-alt"></i></div>
+                        <h5 class="mb-3">Mobile App Development</h5>
+                        <p class="text-muted">Native and cross-platform mobile applications for iOS and Android.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-brain"></i></div>
+                        <h5 class="mb-3">AI &amp; Machine Learning</h5>
+                        <p class="text-muted">Intelligent solutions to automate and optimize your business processes.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-database"></i></div>
+                        <h5 class="mb-3">Data Science</h5>
+                        <p class="text-muted">Extract valuable insights from your data to drive informed business
+                            decisions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-link"></i></div>
+                        <h5 class="mb-3">Blockchain Development</h5>
+                        <p class="text-muted">Secure, decentralized solutions including smart contracts and dApps.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 shadow-sm p-4 text-center">
+                        <div class="icon-box"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h5 class="mb-3">IT Training</h5>
+                        <p class="text-muted">Comprehensive training programs for individuals and corporate teams.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Learning Section -->
+    <section class="section-padding" id="learning">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold">LEARNING RESOURCES</span>
+                <h2 class="mb-3">Free Courses &amp; Tutorials</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <a href="learning.html#web-development">
+                        <div class="card h-100 shadow-sm"><img alt="Web Development Course" class="card-img-top"
+                                src="/images/codes.avif" />
+                            <div class="card-body">
+                                <h5 class="mb-3">Complete Web Development Bootcamp</h5>
+                                <p class="text-muted">Learn HTML, CSS, JavaScript, React, Node.js and more.</p><a
+                                    class="btn btn-sm btn-outline-primary" href="learning.html#web beginner"
+                                    onclick="">Watch Now</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="learning.html#data-science">
+                        <div class="card h-100 shadow-sm"><img alt="Data Science Course" class="card-img-top"
+                                src="/images/data science fundamentals.avif" />
+                            <div class="card-body">
+                                <h5 class="mb-3">Data Science Fundamentals</h5>
+                                <p class="text-muted">Introduction to Python, Pandas, and basic machine learning.</p><a
+                                    class="btn btn-sm btn-outline-primary" href="learning.html#data-science">Watch
+                                    Now</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="learning.html#mobile-app-development">
+                        <div class="card h-100 shadow-sm"><img alt="Mobile App Course" class="card-img-top"
+                                src="images/android app.avif" />
+                            <div class="card-body">
+                                <h5 class="mb-3">Flutter App Development</h5>
+                                <p class="text-muted">Build cross-platform mobile applications with Flutter and Dart.
+                                </p><a class="btn btn-sm btn-outline-primary" href="learning.html">Watch
+                                    Now</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="py-5 py-lg-7" id="gallery" style="background-color: rgba(226, 229, 236, 0.815);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold">OUR GALLERY</span>
+                <h2 class="mb-3">Our Work &amp; Activities</h2>
+                <p class="lead">A glimpse into our projects, training sessions, and company culture</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4 col-6" data-aos="fade-up">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/goodielogo.jpg">
+                        <img alt="Project Showcase" class="img-fluid rounded" src="images/goodielogo.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/goodie.jpg">
+                        <img alt="Training Session" class="img-fluid rounded" src="images/goodie.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/oga_and_madam.jpg">
+                        <img alt="Team Meeting" class="img-fluid rounded" src="images/goodiemeeting.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6" data-aos="fade-up">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/goodie_IT_ flier.jpg">
+                        <img alt="Hackathon" class="img-fluid rounded" src="images/goodi_team.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/goodi_team.jpg">
+                        <img alt="Client Presentation" class="img-fluid rounded" src="images/goodie_IT_ flier.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <a class="gallery-item" data-fancybox="gallery" href="images/goodiemeeting.jpg">
+                        <img alt="Office Environment" class="img-fluid rounded" src="images/oga_and_madam.jpg" />
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a class="btn btn-outline-primary" href="#">View More Photos</a>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section -->
+    <section class="py-5 py-lg-7 bg-light" id="blog">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold">OUR BLOG</span>
+                <h2 class="mb-3">Latest Articles &amp; News</h2>
+                <p class="lead">Stay updated with the latest trends and insights in technology</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img alt="AI Trends" class="card-img-top" src="images/ai-trend.jpeg" />
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <span class="badge bg-primary-light text-primary me-2">AI</span>
+                                <span class="text-muted small">June 15, 2023</span>
+                            </div>
+                            <h5 class="mb-3">The Future of Artificial Intelligence in 2023</h5>
+                            <p class="text-muted mb-4">Exploring the latest advancements in AI technology and how
+                                they're transforming industries worldwide.</p>
+                            <a class="btn btn-link ps-0" href="#">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img alt="Web Development" class="card-img-top" src="images/web-dev.jpeg" />
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <span class="badge bg-primary-light text-primary me-2">Web Dev</span>
+                                <span class="text-muted small">May 28, 2023</span>
+                            </div>
+                            <h5 class="mb-3">Top JavaScript Frameworks to Learn in 2023</h5>
+                            <p class="text-muted mb-4">A comprehensive comparison of React, Angular, Vue, and Svelte for
+                                modern web development.</p>
+                            <a class="btn btn-link ps-0" href="#">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img alt="Blockchain" class="card-img-top" src="images/download.jpeg" />
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <span class="badge bg-primary-light text-primary me-2">Blockchain</span>
+                                <span class="text-muted small">April 10, 2023</span>
+                            </div>
+                            <h5 class="mb-3">Understanding Smart Contracts and Their Applications</h5>
+                            <p class="text-muted mb-4">How smart contracts are revolutionizing industries beyond
+                                cryptocurrency and finance.</p>
+                            <a class="btn btn-link ps-0" href="#">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a class="btn btn-primary px-4" href="#">View All Articles</a>
+            </div>
+        </div>
+    </section>
+    <!-- IT Application Section -->
+    <section class="py-5 py-lg-7" id="it-application">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <img alt="IT Application" class="img-fluid rounded shadow" src="images/goodi_team.jpg" />
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="text-primary fw-bold">SIWES/IT PROGRAM</span>
+                    <h2 class="mb-4">Apply for Industrial Training</h2>
+                    <p class="mb-4">Goodisoft Technologies offers comprehensive Industrial Training (IT) and SIWES
+                        programs for students seeking practical experience in software development and IT.</p>
+                    <div class="accordion mb-4" id="itAccordion">
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button aria-controls="collapseOne" aria-expanded="false"
+                                    class="accordion-button collapsed" data-bs-target="#collapseOne"
+                                    data-bs-toggle="collapse" type="button">
+                                    Program Benefits
+                                </button>
+                            </h3>
+                            <div aria-labelledby="headingOne" class="accordion-collapse collapse"
+                                data-bs-parent="#itAccordion" id="collapseOne">
+                                <div class="accordion-body">
+                                    <ul class="mb-0">
+                                        <li>Hands-on experience with real-world projects</li>
+                                        <li>Mentorship from industry experts</li>
+                                        <li>Exposure to cutting-edge technologies</li>
+                                        <li>Certificate upon completion</li>
+                                        <li>Potential employment opportunities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button aria-controls="collapseTwo" aria-expanded="false"
+                                    class="accordion-button collapsed" data-bs-target="#collapseTwo"
+                                    data-bs-toggle="collapse" type="button">
+                                    Available Tracks
+                                </button>
+                            </h3>
+                            <div aria-labelledby="headingTwo" class="accordion-collapse collapse"
+                                data-bs-parent="#itAccordion" id="collapseTwo">
+                                <div class="accordion-body">
+                                    <ul class="mb-0">
+                                        <li>Web Development</li>
+                                        <li>Mobile App Development</li>
+                                        <li>Data Science &amp; AI</li>
+                                        <li>Blockchain Technology</li>
+                                        <li>UI/UX Design</li>
+                                        <li>Cybersecurity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button aria-controls="collapseThree" aria-expanded="false"
+                                    class="accordion-button collapsed" data-bs-target="#collapseThree"
+                                    data-bs-toggle="collapse" type="button">
+                                    Requirements
+                                </button>
+                            </h3>
+                            <div aria-labelledby="headingThree" class="accordion-collapse collapse"
+                                data-bs-parent="#itAccordion" id="collapseThree">
+                                <div class="accordion-body">
+                                    <ul class="mb-0">
+                                        <li>Currently enrolled in a tertiary institution</li>
+                                        <li>Basic programming knowledge (for technical tracks)</li>
+                                        <li>Letter from institution (for SIWES students)</li>
+                                        <li>Commitment to 3-6 months program</li>
+                                        <li>Passion for technology and learning</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" data-bs-target="#applicationModal" data-bs-toggle="modal" href="#">Apply
+                        Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div aria-hidden="true" aria-labelledby="applicationModalLabel" class="modal fade" id="applicationModal"
+        tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applicationModalLabel">SIWES/IT Application Form</h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="itApplicationForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="firstName" placeholder="First Name" required=""
+                                        type="text" />
+                                    <label for="firstName">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="lastName" placeholder="Last Name" required=""
+                                        type="text" />
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="applicantEmail" placeholder="Email Address"
+                                        required="" type="email" />
+                                    <label for="applicantEmail">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="phone" placeholder="Phone Number" required=""
+                                        type="tel" />
+                                    <label for="phone">Phone Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="institution" placeholder="Institution" required=""
+                                        type="text" />
+                                    <label for="institution">Institution</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="course" placeholder="Course of Study" required=""
+                                        type="text" />
+                                    <label for="course">Course of Study</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="programType" required="">
+                                        <option disabled="" selected="" value="">Select Program Type</option>
+                                        <option value="SIWES">SIWES</option>
+                                        <option value="IT">Industrial Training (IT)</option>
+                                        <option value="Internship">Internship</option>
+                                    </select>
+                                    <label for="programType">Program Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="track" required="">
+                                        <option disabled="" selected="" value="">Select Preferred Track</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Mobile App Development">Mobile App Development</option>
+                                        <option value="Data Science &amp; AI">Data Science &amp; AI</option>
+                                        <option value="Blockchain">Blockchain Technology</option>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Cybersecurity">Cybersecurity</option>
+                                    </select>
+                                    <label for="track">Preferred Track</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="startDate" required="" type="date" />
+                                    <label for="startDate">Preferred Start Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="duration" max="12" min="1" required=""
+                                        type="number" />
+                                    <label for="duration">Duration (Months)</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="experience" placeholder="Previous Experience"
+                                        style="height: 100px"></textarea>
+                                    <label for="experience">Previous Experience (if any)</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="expectations" placeholder="Expectations"
+                                        required="" style="height: 100px"></textarea>
+                                    <label for="expectations">What do you hope to achieve from this program?</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" id="terms" required="" type="checkbox" />
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the terms and conditions of the program
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" form="itApplicationForm" type="submit">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials Section -->
+    <!-- Testimonial Section -->
+    <section class="testimonial-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-dark">
+                    What Our Clients &amp; Interns Say
+                </h2>
+                <p class="fs-5 text-muted">
+                    Discover how we've helped businesses and careers transform and grow.
+                </p>
+            </div>
+            <!-- Bootstrap Carousel -->
+            <div class="carousel slide" data-bs-ride="carousel" id="testimonialCarousel">
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                        data-bs-target="#testimonialCarousel" type="button"></button>
+                    <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#testimonialCarousel"
+                        type="button"></button>
+                    <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#testimonialCarousel"
+                        type="button"></button>
+                    <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#testimonialCarousel"
+                        type="button"></button>
+                    <button aria-label="Slide 5" data-bs-slide-to="4" data-bs-target="#testimonialCarousel"
+                        type="button"></button>
+                </div>
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial-card rounded-3 p-5 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <img alt="Client Photo - John Doe" class="rounded-circle"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/ffffff?text=User';"
+                                    src="/images/portrait-real-black-african-man.webp" width="50px" height="auto"/>
+                                <div class="ms-4">
+                                    <h3 class="fs-5 fw-semibold text-dark mb-0">Kingsley Onuoha</h3>
+                                    <p class="text-muted mb-0">CEO, Innovate Inc.</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 fst-italic">
+                                "Working with GoodiSoft Technologies was a game-changer for our business. Their team is
+                                incredibly talented and delivered a product that exceeded our expectations. The project
+                                was completed on time and on budget. Highly recommended!"
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card rounded-3 p-5 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <img alt="Client Photo - Jane Smith" class="rounded-circle"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/ffffff?text=User';"
+                                    src="/images/Benita.jpg" width="50px" height="50px"/>
+                                <div class="ms-4">
+                                    <h3 class="fs-5 fw-semibold text-dark mb-0">Jacinta Chinecherem</h3>
+                                    <p class="text-muted mb-0">Marketing Director, Solutions Co.</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 fst-italic">
+                                "The custom software GoodiSoft developed for us streamlined our entire workflow. Their
+                                attention to detail and commitment to understanding our needs was impressive. We've seen
+                                a significant increase in productivity since implementation."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card rounded-3 p-5 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <img alt="Client Photo - Mike Brown" class="rounded-circle"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/ffffff?text=User';"
+                                    src="https://placehold.co/80x80/f59e0b/ffffff?text=MB" />
+                                <div class="ms-4">
+                                    <h3 class="fs-5 fw-semibold text-dark mb-0">Mike Adeleke</h3>
+                                    <p class="text-muted mb-0">Founder, TechStart</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 fst-italic">
+                                "As a startup, we needed a reliable technology partner. GoodiSoft was the perfect
+                                choice. They were flexible, creative, and provided invaluable guidance throughout the
+                                development of our mobile app. We couldn't be happier with the result."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card rounded-3 p-5 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <img alt="Student Photo - Cynthia Ofori" class="rounded-circle"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/ffffff?text=User';"
+                                    src="/images/cynthia ofori.avif" width="90px" height="90px" />
+                                <div class="ms-4">
+                                    <h3 class="fs-5 fw-semibold text-dark mb-0">Cynthia Ofori</h3>
+                                    <p class="text-muted mb-0">IT Student, Tech University</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 fst-italic">
+                                "My internship at GoodiSoft was an incredible learning experience. I got to work on
+                                real-world projects and was mentored by senior developers. It gave me the practical
+                                skills and confidence I needed to start my career in tech."
+                            </blockquote>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="carousel-item">
+                        <div class="testimonial-card rounded-3 p-5 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <img alt="Student Photo - Kevin Chen" class="rounded-circle"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/80x80/cccccc/ffffff?text=User';"
+                                    src="/images/kevin.avif" width="50px" height="auto"/>
+                                <div class="ms-4">
+                                    <h3 class="fs-5 fw-semibold text-dark mb-0">Kelvin Onyema</h3>
+                                    <p class="text-muted mb-0">Computer Science Student</p>
+                                </div>
+                            </div>
+                            <blockquote class="mt-4 fst-italic">
+                                "The workshops hosted by GoodiSoft are fantastic. They cover the latest technologies and
+                                are taught by industry experts. It's a great way to bridge the gap between academic
+                                knowledge and industry demands. I feel much more prepared for the job market."
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#testimonialCarousel"
+                    type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#testimonialCarousel"
+                    type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section section-padding bg-primary text-white">
+        <div class="container text-center">
+            <div data-aos="fade-up">
+                <h2 class="mb-3">Ready to Transform Your Business or Career?</h2>
+                <p class="lead mb-4">Whether you need custom software solutions or want to enhance your tech skills,
+                    we're here to help.</p>
+                <a class="btn btn-light me-2" href="#contact">Contact Us</a>
+                <a class="btn btn-outline-light" href="it-application.html">Apply for IT</a>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="text-primary fw-bold">CONTACT US</span>
+                <h2 class="mb-3">Get In Touch</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info p-4 p-lg-5 h-100">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="d-flex mb-4">
+                            <div class="me-3 fs-4 text-primary"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h5>Our Office</h5>
+                                <p class="mb-0">3 Gunning Rd, Azuiyi Udene, Abakaliki 480106, Ebonyi</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="me-3 fs-4 text-primary"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h5>Phone Number</h5>
+                                <p class="mb-0">(+234) 806 584 5092</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-3 fs-4 text-primary"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h5>Email Address</h5>
+                                <p class="mb-0">info@goodisoft.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="bg-white p-4 p-lg-5 rounded shadow-sm">
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating"><input class="form-control" id="name"
+                                            placeholder="Your Name" required="" type="text" /><label for="name">Your
+                                            Name</label></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating"><input class="form-control" id="email"
+                                            placeholder="Your Email" required="" type="email" /><label for="email">Your
+                                            Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating"><input class="form-control" id="subject"
+                                            placeholder="Subject" required="" type="text" /><label
+                                            for="subject">Subject</label></div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating"><textarea class="form-control" id="message"
+                                            placeholder="Your Message" required=""
+                                            style="height: 150px"></textarea><label for="message">Your Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12"><button class="btn btn-primary" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container-fluid p-0">
+            <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.816107727446!2d8.103089514770857!3d6.338361395415548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1043f3500c8cf3ef%3A0xb67870d0f94d98a2!2s3%20Gunning%20Rd%2C%20Azuiyi%20Udene%2C%20Abakaliki%20480251%2C%20Ebonyi!5e0!3m2!1sen!2sng!4v1692361234567!5m2!1sen!2sng"
+                style="border:0;" width="100%">
+            </iframe>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-3 text-white-50">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img style="border-radius: 0.5rem; width: 80px; height: auto;" alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="images/goodie_logo_enhanced.png" />
+                    <img alt="Goodisoft Technologies White Logo" class="mb-3"
+                        src="https://placehold.co/180x50/212121/ffffff?text=GoodiSoft&amp;font=poppins" />
+                    <p>Delivering innovative solutions and empowering the next generation of tech professionals.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html">Web Development</a></li>
+                        <li class="mb-2"><a href="services.html">Mobile App Development</a></li>
+                        <li class="mb-2"><a href="services.html">AI &amp; Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4">Connect</h5>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/Goodisoft"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/GoodisoftTech"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" />
+            <div class="text-center">
+                <p class="mb-0">© 2024 Goodisoft Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <a class="back-to-top btn btn-primary rounded-circle shadow" href="#">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- Third-Party JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Preloader
+            const preloader = document.querySelector('.preloader');
+            window.addEventListener('load', () => {
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+
+            // Initialize Fancybox for Gallery
+            Fancybox.bind("[data-fancybox]", {});
+
+            // Testimonial Slider using Slick
+            $('.testimonial-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('active');
+                    } else {
+                        backToTopButton.classList.remove('active');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Navbar Active Link & Smooth Scrolling
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .footer a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+
+                // If it's an on-page anchor (#id), do smooth scroll
+                if (targetId.startsWith("#")) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // Otherwise, allow browser to follow normal links (e.g., .html pages)
+            });
+        });
+
+            // Navbar Shadow on Scroll
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 50) {
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                });
+            }
+
+            // Contact Form Submission (Demo)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+            
+            // Dark Mode Toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const moonIcon = 'fa-moon';
+            const sunIcon = 'fa-sun';
+
+            // Function to set the theme
+            const setTheme = (isDark) => {
+                body.classList.toggle('dark-mode', isDark);
+                darkModeToggle.querySelector('i').className = `fas ${isDark ? sunIcon : moonIcon}`;
+                localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+            };
+
+            // Check for saved preference
+            const savedTheme = localStorage.getItem('darkMode') === 'true';
+            setTheme(savedTheme);
+
+            // Event listener for the toggle button
+            darkModeToggle.addEventListener('click', () => {
+                const isDarkMode = body.classList.contains('dark-mode');
+                setTheme(!isDarkMode);
+            });
+        });
+    </script>
+    <script>
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+
+                // If it's an on-page anchor (#id), do smooth scroll
+                if (targetId.startsWith("#")) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu after click
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            new bootstrap.Collapse(navbarCollapse).hide();
+                        }
+                    }
+                }
+                // Otherwise, let the browser navigate normally for .html links
+            });
+        });
+    </script>
+       <script>  // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        counters.forEach(counter => {
+            const animate = () => {
+                const value = +counter.getAttribute('data-target');
+                const data = +counter.innerText;
+                const increment = value / speed;
+                if (data < value) {
+                    counter.innerText = Math.ceil(data + increment);
+                    setTimeout(animate, 20);
+                } else {
+                    counter.innerText = value + "+";
+                }
+            };
+            animate();
+        });</script>
+</body>
+
+</html>
